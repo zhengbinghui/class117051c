@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+       <!-- <h1>{{article.title}}</h1>
+       <h2>{{article.author}}</h2>
+       <h3>{{article.publishDate}}</h3>
+       <p>
+            {{article.content}}
+       </p> -->
+       <!-- heart是组件的一个属性，把么组件必须通过props声明这个属性 -->
+       <!-- <zhengbinghui v-bind:heart="article"></zhengbinghui>
+       <zhengbinghui v-bind:heart="article2"></zhengbinghui> -->
+       <zhengbinghui v-for="article in articleList" :key="article.title" :heart="article"></zhengbinghui>
+    </div>
+    <script>
+        //定义自定义组件
+        //第一个参数是自定义组件的标签名称，第二个参数是定义该组件的运行规则对象
+        Vue.component('zhengbinghui',{
+            props:['heart'],
+            //template中定义的是组件的模板，也就是html和插值{{}}以及vue指令的集合
+            //template必须要有根标签
+            template:'<div>'+
+                        '<h1 style="color:red">{{heart.title}}</h1>'+
+                        '<h2>{{heart.author}}</h2>'+
+                        '<h3>{{heart.publishDate}}</h3>'+
+                        '<p>{{heart.content}}</p>'+
+                     '</div>'
+        })
+        var app=new Vue({
+            el:"#app",
+            data:{
+            //   article:{
+            //       title:"标题",
+            //       author:"作者",
+            //       publishDate:"2019-12-13",
+            //       content:"详细内容",
+            //   },   
+            //   article2:{
+            //       title:"标题1",
+            //       author:"作者1",
+            //       publishDate:"2019-12-14",
+            //       content:"详细内容1",
+            //   },
+              articleList:[
+                {
+                    title:"标题",
+                    author:"作者",
+                    publishDate:"2019-12-13",
+                    content:"详细内容",
+                },   
+                {
+                    title:"标题1",
+                    author:"作者1",
+                    publishDate:"2019-12-14",
+                    content:"详细内容1",
+                },
+                {
+                    title:"标题2",
+                    author:"作者2",
+                    publishDate:"2019-12-12",
+                    content:"详细内容2",
+                },
+                {
+                    title:"标题3",
+                    author:"作者3",
+                    publishDate:"2019-12-11",
+                    content:"详细内容3",
+                },
+              ]   
+            },
+        })
+    </script>
+    <style>
+        
+    </style>
+</body>
+</html>

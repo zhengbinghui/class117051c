@@ -21,7 +21,7 @@
        <zhengbinghui-1 >
            <template v-slot:title>{{article.title}}</template>
            <template v-slot:author>{{article.author}}</template>
-           <template v-slot:publishDate>{{article.publishDate}}</template>
+           <template v-slot:date>{{article.publishDate}}</template>
            {{article.content}}
        </zhengbinghui-1>
     </div>
@@ -34,8 +34,8 @@
             template:'<div>'+
             '<h1><slot name="title"></slot></h1>'+
             '<h2><slot name="author"></slot></h2>'+
-            '<h3><slot name="publishDate"></slot></h3>'+
-            '<p><slot></slot></p879>'+
+            '<h3><slot name="date"></slot></h3>'+
+            '<p><slot></slot></p>'+
             '</div>'
         })
         var app=new Vue({
@@ -45,8 +45,8 @@
                   title:"标题",
                   author:"作者",
                   publishDate:"2019-12-13",
-                  content:"详细内容",
-              },   
+                  content:"详细内容"
+              }   
             //   article2:{
             //       title:"标题1",
             //       author:"作者1",
@@ -79,7 +79,7 @@
             //         content:"详细内容3",
             //     },
             //   ]   
-            },
+            }
         })
     </script>
     <style>
